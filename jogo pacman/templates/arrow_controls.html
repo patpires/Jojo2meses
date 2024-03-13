@@ -1,0 +1,13 @@
+<div style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; justify-content: space-between; width: 400px; height: 80px; max-width: 100%;">
+    <button style="flex-grow: 1; background-color: red; color: white; font-weight: bold; height: 80px; touch-action: manipulation;" onclick="movePacman('ArrowUp')">↑</button>
+    <br>
+    <button style="flex-grow: 1; background-color: red; color: white; font-weight: bold; height: 80px; touch-action: manipulation;" onclick="movePacman('ArrowLeft')">←</button>
+    <button style="flex-grow: 1; background-color: red; color: white; font-weight: bold; height: 80px; touch-action: manipulation;" onclick="movePacman('ArrowDown')">↓</button>
+    <button style="flex-grow: 1; background-color: red; color: white; font-weight: bold; height: 80px; touch-action: manipulation;" onclick="movePacman('ArrowRight')">→</button>
+</div>
+<script>
+    function movePacman(direction) {
+        const event = new KeyboardEvent('keydown', {'key': direction});
+        document.dispatchEvent(event);
+    }
+</script>

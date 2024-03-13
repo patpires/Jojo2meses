@@ -1,0 +1,45 @@
+<div style="position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); z-index: 30;">
+    <button id="startButton" style="background-color: red; color: white; font-weight: bold;" onclick="startGame()">INICIAR</button>
+</div>
+<script>
+    function startGame() {
+        resetGame();
+        // Reset Pacman and ghosts to their starting positions
+        pacman.x = 130;
+        pacman.y = 270;
+        pinkGhost.x = 5 * 20;
+        pinkGhost.y = 6 * 20;
+        lightBlueGhost.x = 4 * 20;
+        lightBlueGhost.y = 16 * 20;
+        orangeGhost.x = 14 * 20;
+        orangeGhost.y = 18 * 20;
+        redGhost.x = 14 * 20;
+        redGhost.y = 8 * 20;
+        // Reset the grid to its initial state
+        for (let i = 0; i < grid.length; i++) {
+            for (let j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] === 5) {
+                    grid[i][j] = 1; // Reset dots
+                }
+            }
+        }
+        dotsEaten = 0; // Reset dots eaten
+        pacman.score = 0; // Reset score
+        if (gameInterval) clearInterval(gameInterval); // Clear existing game interval if any
+        gameInterval = setInterval(function() { // Start a new game interval
+            clearCanvas();
+            drawGrid();
+            drawPacman();
+            drawGhost(pinkGhost.x, pinkGhost.y, pinkGhost.color);
+            drawGhost(lightBlueGhost.x, lightBlueGhost.y, lightBlueGhost.color);
+            drawGhost(redGhost.x, redGhost.y, redGhost.color);
+            drawGhost(orangeGhost.x, orangeGhost.y, orangeGhost.color);
+            moveGhosts();
+            checkCollision(pacman, pinkGhost);
+            checkCollision(pacman, lightBlueGhost);
+            checkCollision(pacman, redGhost);
+            checkCollision(pacman, orangeGhost);
+        }, 250);
+    }
+</script>
+</script>

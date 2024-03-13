@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/patpires/Jojo2meses/main/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pacman Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Import retro arcade font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* CSS styles for the header */
+        header {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin-top: 25px; /* Set margin to the top */
+            font-size: 50px; /* Set font size */
+            font-family: 'Press Start 2P', cursive; /* Use retro arcade font */
+        }
+    </style>
+</head>
+<body style="background-color: white;">
+    <div class="game-container" style="position: relative;">
+        <header style="position: absolute; top: 0; width: 100%; z-index: 10;">
+            JOANA - 2 MESES
+        </header>
+        <canvas id="pacman" width="400" height="440" style="position: relative; z-index: 1;"></canvas>
+    </div>
+    {% include 'start_button.html' %}
+    {% include 'arrow_controls.html' %}
+    <audio id="backgroundMusic" loop>
+        <source src="https://raw.githubusercontent.com/patpires/Jojo2meses/main/alecrim_dourado.mp3" type="audio/mpeg">
+    </audio>
+    <script src="{{ url_for('static', filename='js/pacman.js') }}"></script>
+</body>
+</html>
